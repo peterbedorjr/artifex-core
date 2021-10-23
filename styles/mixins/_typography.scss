@@ -1,0 +1,16 @@
+///
+/// @group typography
+/// @param {*} $family [$baseFont] - Font family
+/// @param {Number|null} $size [null]
+/// @param {Number|null} $weight [null]
+/// @param {Number|null} $lineHeight [null]
+/// @param {String|null} $style [null]
+/// @param {Number|null} $spacing [null]
+@mixin font($family: $baseFont, $size: null, $weight: null, $lineHeight: null, $style: null, $spacing: null) {
+    font-family: $family;
+    font-size: $size;
+    font-weight: $weight;
+    line-height: $lineHeight;
+    font-style: $style;
+    letter-spacing: $spacing;
+}

@@ -1,0 +1,256 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+}
+
+::before,
+::after {
+    text-decoration: inherit;
+    vertical-align: inherit;
+}
+
+:root {
+    cursor: default;
+    line-height: $baseLineHeight;
+    overflow-wrap: break-word;
+    tab-size: 4;
+    -webkit-tap-highlight-color: transparent;
+    text-size-adjust: 100%;
+}
+
+::-moz-focus-inner {
+    padding: 0;
+    border-style: none;
+}
+
+html {
+    font-size: $rootFontSize;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    @include font(
+        $family: $baseFont,
+        $weight: $normalFontWeight,
+        $lineHeight: null,
+        $size: $baseFontSize
+    );
+
+    background-color: if($bodyBackground, $bodyBackground, null);
+    block-size: stretch;
+    color: $baseColor;
+    position: relative;
+}
+
+// Forms
+
+button {
+    border-radius: 0;
+}
+
+button:focus:not(:focus-visible) {
+    outline: 0;
+}
+
+input,
+button,
+select,
+optgroup,
+textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+button,
+select {
+    text-transform: none;
+}
+
+[role="button"] {
+    cursor: pointer;
+}
+
+select {
+    word-wrap: normal;
+    &:disabled {
+        opacity: 1;
+    }
+}
+
+[list]::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+    -webkit-appearance: button;
+
+    &:not(:disabled) {
+        cursor: pointer;
+    }
+}
+
+textarea {
+    resize: vertical;
+}
+
+fieldset {
+    min-width: 0;
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+label {
+    display: inline-block;
+}
+
+// TODO
+legend {
+    float: left;
+    width: 100%;
+    padding: 0;
+    margin-bottom: $blockMarginBottom;
+    line-height: inherit;
+
+    + * {
+        clear: left;
+    }
+}
+
+::-webkit-datetime-edit-fields-wrapper,
+::-webkit-datetime-edit-text,
+::-webkit-datetime-edit-minute,
+::-webkit-datetime-edit-hour-field,
+::-webkit-datetime-edit-day-field,
+::-webkit-datetime-edit-month-field,
+::-webkit-datetime-edit-year-field {
+    padding: 0;
+}
+
+::-webkit-inner-spin-button {
+    height: auto;
+}
+
+[type=search] {
+    outline-offset: -2px;
+    -webkit-appearance: textfield;
+}
+
+::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+
+::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+::-webkit-file-upload-button {
+    font: inherit;
+    -webkit-appearance: button;
+}
+
+output {
+    display: inline-block;
+}
+
+iframe {
+    border: 0;
+}
+
+summary {
+    display: list-item; // 1
+    cursor: pointer;
+}
+
+progress {
+    vertical-align: baseline;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+main {
+    display: block;
+}
+
+img {
+    display: inline-block;
+}
+
+embed,
+img,
+object,
+video {
+    max-width: 100%;
+}
+
+svg {
+    overflow: hidden;
+}
+
+embed,
+object {
+    height: 100%;
+}
+
+audio,
+canvas,
+video {
+    display: inline-block;
+}
+
+canvas {
+    -ms-touch-action: double-tap-zoom;
+}
+
+iframe {
+    border: 0;
+    margin-bottom: $blockMarginBottom;
+}
+
+figure {
+    border: if($figureBorderColor, 1px solid $figureBorderColor, none);
+    border-radius: if($figureRounded, $defaultRadius, null);
+    margin-bottom: $blockMarginBottom;
+    padding: $figurePadding;
+    position: relative;
+    text-align: center;
+
+    img {
+        margin-bottom: $blockMarginBottom;
+    }
+
+    figcaption {
+        color: $figCaptionColor;
+        font-style: $figCaptionFontStyle;
+        line-height: $figCaptionLineHeight;
+    }
+}
+
+::-moz-selection {
+    background: $selectionBackground;
+    color: $selectionColor;
+    text-shadow: none;
+}
+::selection {
+    background: $selectionBackground;
+    color: $selectionColor;
+    text-shadow: none;
+}
+
+

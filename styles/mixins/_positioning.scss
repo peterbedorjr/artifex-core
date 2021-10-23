@@ -1,0 +1,66 @@
+/// Helper for positioning
+///
+/// @param $type - absolute, relative, or fixed
+/// @param $top - top position of el
+/// @param $right - right position of el
+/// @param $bottom - bottom position of el
+/// @param $left - left position of el
+/// @access private
+///
+@mixin position($type, $top: 0, $right: 0, $bottom: 0, $left: 0) {
+    position: $type;
+
+    @each $data in top $top, right $right, bottom $bottom, left $left {
+        @if (nth($data, 2) != false) {
+            #{nth($data, 1)}: nth($data, 2);
+        }
+    }
+}
+
+/// Absolute positioning
+///
+/// @param $top - top position of el
+/// @param $right - right position of el
+/// @param $bottom - bottom position of el
+/// @param $left - left position of el
+///
+@mixin absolute(
+    $top: false,
+    $right: false,
+    $bottom: false,
+    $left: false
+) {
+    @include position(absolute, $top, $right, $bottom, $left);
+}
+
+/// Relative positioning
+///
+/// @param $top - top position of el
+/// @param $right - right position of el
+/// @param $bottom - bottom position of el
+/// @param $left - left position of el
+///
+@mixin relative(
+    $top: false,
+    $right: false,
+    $bottom: false,
+    $left: false
+) {
+    @include position(relative, $top, $right, $bottom, $left);
+}
+
+/// Fixed positioning
+///
+/// @param $top - top position of el
+/// @param $right - right position of el
+/// @param $bottom - bottom position of el
+/// @param $left - left position of el
+///
+@mixin fixed(
+    $top: false,
+    $right: false,
+    $bottom: false,
+    $left: false
+) {
+    @include position(fixed, $top, $right, $bottom, $left);
+}

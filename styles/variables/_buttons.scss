@@ -1,0 +1,135 @@
+////
+/// @group Buttons
+////
+
+/// @type Number
+/// @access public
+$buttonBorderWidth: 1px !default;
+
+/// @type Number
+/// @access public
+$buttonPaddingHorizontal: 1.6rem !default;
+
+/// @type Number
+/// @access public
+$buttonPaddingVertical: .6rem !default;
+
+/// @type Number
+/// @access public
+$buttonCursor: pointer !default;
+
+/// @type Number
+/// @access public
+$buttonFocusBackgroundShadeAmount: 10% !default;
+
+/// @type Number
+/// @access public
+$buttonFocusBackgroundTintAmount: 10% !default;
+
+/// @type Number
+/// @access public
+$buttonHoverBackgroundShadeAmount: 15% !default;
+
+/// @type Number
+/// @access public
+$buttonHoverBackgroundTintAmount: 15% !default;
+
+/// @type Number
+/// @access public
+$buttonActiveBackgroundShadeAmount: 20% !default;
+
+/// @type Number
+/// @access public
+$buttonActiveBackgroundTintAmount: 20% !default;
+
+/// @type Number
+/// @access public
+$buttonActiveHoverBackgroundShadeAmount: 20% !default;
+
+/// @type Number
+/// @access public
+$buttonActiveHoverBackgroundTintAmount: 20% !default;
+
+/// @type Color
+/// @access public
+$buttonColor: $white !default;
+
+/// @type Color|Boolean
+/// @access public
+$buttonBorderColor: false !default;
+
+/// @type Color
+/// @access public
+$buttonBackgroundColor: $primary !default;
+
+/// @type Color
+/// @access public
+$buttonBackgroundColorFocus: shade-color($buttonBackgroundColor, $buttonFocusBackgroundShadeAmount) !default;
+
+/// @type Color
+/// @access public
+$buttonBackgroundColorHover: shade-color($buttonBackgroundColor, $buttonHoverBackgroundShadeAmount) !default;
+
+/// @type Color
+/// @access public
+$buttonBackgroundColorActive: shade-color($buttonBackgroundColor, $buttonActiveBackgroundShadeAmount) !default;
+
+/// @type Color
+/// @access public
+$buttonBackgroundColorActiveHover: shade-color($buttonBackgroundColor, $buttonActiveHoverBackgroundShadeAmount) !default;
+
+/// @type Number
+/// @access public
+$buttonFocusOutlineWidth: 1px !default;
+
+/// @type String
+/// @access public
+$buttonFocusOutlineStyle: solid !default;
+
+/// @type Color
+/// @access public
+$buttonFocusOutlineColor: rgba(mix($buttonColor, $buttonBackgroundColor, 5%), .5);
+
+/// @type Number
+/// @access public
+$buttonFocusOutlineOffset: 1px;
+
+/// @type Number
+/// @access public
+$buttonBorderRadius: $defaultRadius !default;
+
+/// @type String
+/// @access public
+$disabledButtonCursor: not-allowed !default;
+
+/// @type String
+/// @access public
+$disabledButtonClassModifier: -is-disabled !default;
+
+/// @type Color
+/// @access public
+$disabledButtonColor: $darkGray !default;
+
+/// @type Color
+/// @access public
+$disabledButtonBackgroundColor: $lightGray !default;
+
+/// @type Color|Boolean
+/// @access public
+$disabledButtonBorderColor: false !default;
+
+/// @type Color
+/// @access public
+$buttonActiveBoxShadow: inset 1px 1px 5px rgba($black, .2);
+
+/// @type List
+/// @access public
+$buttonFont: $baseFont !default;
+
+/// @type Number
+/// @access public
+$buttonFontSize: $baseFontSize !default;
+
+/// @type String
+/// @access public
+$buttonFontWeight: normal !default;

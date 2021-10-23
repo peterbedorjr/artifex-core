@@ -1,0 +1,42 @@
+////
+/// @group Root
+////
+
+/// Root font size (62.5% = 10px, 100% = 16px)
+/// All rem-based units are relative to the root size set here
+/// @type Number
+/// @access public
+$rootFontSize: 62.5% !default;
+
+/// Default border radius for rounded elements
+/// @type Number
+/// @access public
+$defaultRadius: 3px !default;
+
+/// @type Boolean
+/// @access public
+$buttonRounded: true !default;
+
+/// @type Boolean
+/// @access public
+$inputRounded: true !default;
+
+/// @type Boolean
+/// @access public
+$buttonVariantsEnabled: true !default;
+
+/// @type Number
+/// @access public
+$minimumContrastRatio: 3.5 !default;
+
+/// @type Boolean
+/// @access public
+$shadowsEnabled: true !default;
+
+/// @type Boolean
+/// @access public
+$outlineEnabled: false !default;
+
+/// @type Boolean
+/// @access public
+$padContainer: true !default;

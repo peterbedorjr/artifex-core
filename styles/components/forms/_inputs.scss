@@ -1,0 +1,406 @@
+.was-validated {
+    .input {
+        &:not(:disabled) {
+            &:focus {
+                &:required {
+                    &:invalid {
+                        background-color: $inputBackgroundInvalid;
+                        border-color: $inputBorderColorInvalid;
+                        color: $inputColorInvalid;
+                    }
+                }
+            }
+        }
+
+        &:invalid {
+            background-color: $inputBackgroundInvalid;
+            border: if($inputBorderWidthInvalid, $inputBorderWidthInvalid solid $inputBorderColorInvalid, null);
+            color: $inputColorInvalid;
+
+            &:hover {
+                border-color: $inputBorderColorInvalidHover;
+            }
+
+            &:focus {
+                @if $shadowsEnabled {
+                    @include boxShadow(
+                        $inputFocusBoxShadowInvalid,
+                        0 0 0 $inputFocusWidth rgba(mix($inputBorderColorInvalid, $inputBackground, 5%), 0.5)
+                    );
+                } @else if $outlineEnabled {
+                    outline: $inputFocusOutlineWidth $inputFocusOutlineStyle $inputFocusColorInvalid;
+                    outline-offset: $inputFocusOutlineOffset;
+                }
+
+                border-color: $inputBorderColorInvalidFocus;
+            }
+        }
+
+        &:valid {
+            background-color: $inputBackgroundValid;
+            border: if($inputBorderWidthValid, $inputBorderWidthValid solid $inputBorderColorValid, null);
+            color: $inputColorValid;
+
+            &:hover {
+                border-color: $inputBorderColorValidHover;
+            }
+
+            &:focus {
+                @if $shadowsEnabled {
+                    @include boxShadow(
+                        $inputFocusBoxShadowValid,
+                        0 0 0 $inputFocusWidth rgba(mix($inputBorderColorValid, $inputBackground, 5%), 0.5)
+                    );
+                } @else if $outlineEnabled {
+                    outline: $inputFocusOutlineWidth $inputFocusOutlineStyle $inputFocusColorValid;
+                    outline-offset: $inputFocusOutlineOffset;
+                }
+
+                border-color: $inputBorderColorValid;
+            }
+        }
+    }
+}
+
+.input {
+    @include font($inputFont, $inputFontSize, $inputFontWeight);
+
+    @include placeholder {
+        color: $inputPlaceholderColor;
+    }
+
+    appearance: none;
+    display: block;
+    background-clip: border-box;
+    background-color: $inputBackground;
+    line-height: $inputLineHeight;
+    border: if($inputBorderColor, $inputBorderWidth solid $inputBorderColor, null);
+    border-radius: if($inputRounded, $inputBorderRadius, null);
+    color: $inputColor;
+    margin: 0 0 $inputMarginBottom 0;
+    min-height: if($inputMinHeight, $inputMinHeight, null);
+    min-width: if($inputMinWidth, $inputMinWidth, null);
+    outline: 0;
+    padding: $inputPaddingVertical $inputPaddingHorizontal;
+    width: 100%;
+
+    &:not(:disabled):not([readonly]) {
+        &:hover {
+            border-color: $inputBorderColorHover;
+        }
+
+        &:focus {
+            @if $shadowsEnabled {
+                @include boxShadow(
+                    $inputFocusBoxShadow,
+                    0 0 0 $inputFocusWidth rgba(mix($primary, $inputBackground, 5%), 0.5)
+                );
+            } @else if $outlineEnabled {
+                outline: $inputFocusOutlineWidth $inputFocusOutlineStyle $inputFocusOutlineColor;
+                outline-offset: $inputFocusOutlineOffset;
+            }
+
+            border-color: $inputFocusBorderColor;
+        }
+    }
+
+    &[disabled],
+    &[readonly],
+    &.#{$inputDisabledModifier} {
+        @if ($inputBorderWidthDisabled == false) {
+            border: none;
+        } @else {
+            border-width: $inputBorderWidthDisabled;
+        }
+
+        background-color: $inputDisabledBackground;
+        color: $inputColorDisabled;
+        cursor: $inputDisabledCursor;
+    }
+
+    &[type="file"] {
+        overflow: hidden; // prevent pseudo element button overlap
+
+        &:not(:disabled):not([readonly]) {
+            cursor: pointer;
+        }
+    }
+
+    &::-webkit-date-and-time-value {
+        // Multiply line-height by 1em if it has no unit
+        height: if(unit($inputLineHeight) == "", $inputLineHeight * 1em, $inputLineHeight);
+    }
+
+    // File input buttons theming
+    &::-webkit-file-upload-button,
+    &::file-selector-button {
+        padding: $inputPaddingVertical $inputPaddingHorizontal;
+        margin: (-$inputPaddingVertical) (-$inputPaddingHorizontal);
+        margin-inline-end: $inputPaddingVertical;
+        color: $formFileButtonColor;
+        background-color: $formFileButtonBackgroundColor;
+        pointer-events: none;
+        border-color: inherit;
+        border-style: solid;
+        border-width: 0;
+        border-inline-end-width: $inputBorderWidth;
+        border-radius: 0; // stylelint-disable-line property-disallowed-list
+    }
+
+    &:hover:not(:disabled):not([readonly])::file-selector-button,
+    &:hover:not(:disabled):not([readonly])::-webkit-file-upload-button {
+        background-color: $formFileButtonBackgroundHoverColor;
+    }
+}
+
+.input-range {
+    width: 100%;
+    height: $rangeThumbHeight;
+    padding: 0; // Need to reset padding
+    background-color: transparent;
+    appearance: none;
+
+    &:focus {
+        outline: 0;
+
+        // Pseudo-elements must be split across multiple rulesets to have an effect.
+        // No box-shadow() mixin for focus accessibility.
+        &::-webkit-slider-thumb {
+            box-shadow: $rangeThumbBoxShadowFocus;
+        }
+        &::-moz-range-thumb {
+            box-shadow: $rangeThumbBoxShadowFocus;
+        }
+    }
+
+    &::-moz-focus-outer {
+        border: 0;
+    }
+
+    &::-webkit-slider-thumb {
+        @if $shadowsEnabled {
+            @include boxShadow($rangeThumbBoxShadow);
+        }
+
+        width: $rangeThumbWidth;
+        height: $rangeThumbHeight;
+        margin-top: ($rangeTrackHeight - $rangeThumbHeight) * 0.5; // Webkit specific
+        background-color: $rangeThumbBackground;
+        border: $rangeThumbBorder;
+        border-radius: $rangeThumbBorderRadius;
+        appearance: none;
+
+        &:active {
+            background-color: $rangeThumbActiveBackground;
+        }
+    }
+
+    &::-webkit-slider-runnable-track {
+        @if $shadowsEnabled {
+            @include boxShadow($rangeThumbBoxShadow);
+        }
+
+        width: $rangeTrackWidth;
+        height: $rangeTrackHeight;
+        color: transparent; // Why?
+        cursor: $rangeTrackCursor;
+        background-color: $rangeTrackBackground;
+        border-color: transparent;
+    }
+
+    &::-moz-range-thumb {
+        @if $shadowsEnabled {
+            @include boxShadow($rangeThumbBoxShadow);
+        }
+
+        width: $rangeThumbWidth;
+        height: $rangeThumbHeight;
+        background-color: $rangeThumbBackground;
+        border: $rangeThumbBorder;
+        border-radius: $rangeThumbBorderRadius;
+        appearance: none;
+
+        &:active {
+            background-color: $rangeThumbActiveBackground;
+        }
+    }
+
+    &::-moz-range-track {
+        width: $rangeTrackWidth;
+        height: $rangeTrackHeight;
+        color: transparent;
+        cursor: $rangeTrackCursor;
+        background-color: $rangeTrackBackground;
+        border-color: transparent; // Firefox specific?
+        border-radius: $rangeThumbBorderRadius;
+    }
+
+    &:disabled {
+        pointer-events: none;
+
+        &::-webkit-slider-thumb {
+            background-color: $rangeThumbDisabledBackground;
+        }
+
+        &::-moz-range-thumb {
+            background-color: $rangeThumbDisabledBackground;
+        }
+    }
+}
+
+.input-select {
+    display: block;
+    width: 100%;
+    padding: $selectPaddingVertical $selectIndicatorPadding $selectPaddingVertical $selectPaddingHorizontal;
+    // stylelint-disable-next-line property-no-vendor-prefix
+    -moz-padding-start: subtract($selectPaddingHorizontal, 3px); // See https://github.com/twbs/bootstrap/issues/32636
+    font-family: $selectFont;
+    font-size: $selectFontSize;
+    font-weight: $selectFontWeight;
+    line-height: $selectLineHeight;
+    color: $selectColor;
+    background-color: $selectBackground;
+    background-image: escape-svg($selectIndicator);
+    background-repeat: no-repeat;
+    background-position: $selectBackgroundPosition;
+    background-size: $selectBackgroundSize;
+    border: $selectBorderWidth solid $selectBorderColor;
+    border-radius: $selectBorderRadius;
+    box-shadow: $selectBoxShadow;
+    appearance: none;
+    cursor: pointer;
+
+    &:focus {
+        border-color: $selectFocusBorderColor;
+        outline: 0;
+        @if $shadowsEnabled {
+            @include boxShadow($selectBoxShadow, $selectFocusBoxShadow);
+        } @else if $outlineEnabled {
+            outline: $inputFocusOutlineWidth $inputFocusOutlineStyle $inputFocusColorValid;
+            outline-offset: $inputFocusOutlineOffset;
+        }
+    }
+
+    &[multiple],
+    &[size]:not([size="1"]) {
+        padding-right: $selectPaddingHorizontal;
+        background-image: none;
+    }
+
+    &:disabled {
+        color: $selectDisabledColor;
+        background-color: $selectDisabledBackground;
+        border-color: $selectDisabledBorderColor;
+    }
+
+    // Remove outline from select box in FF
+    &:-moz-focusring {
+        color: transparent;
+        text-shadow: 0 0 0 $selectColor;
+    }
+}
+
+.form-check {
+    display: block;
+    min-height: $formCheckMinHeight;
+    padding-left: $formCheckPaddingLeft;
+    margin-bottom: $formCheckMarginBottom;
+
+    .form-check-input {
+        float: left;
+        margin-left: $formCheckPaddingLeft * -1;
+    }
+}
+
+.form-check-input {
+    width: $formCheckInputWidth;
+    height: $formCheckInputWidth;
+    margin-top: ($baseLineHeight - $formCheckInputWidth) * 0.5; // line-height minus check height
+    vertical-align: top;
+    background-color: $formCheckInputBackground;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border: $formCheckInputBorder;
+    appearance: none;
+    color-adjust: exact; // Keep themed appearance for print
+
+    &[type="checkbox"] {
+        border-radius: $formCheckInputBorderRadius;
+    }
+
+    &[type="radio"] {
+        // stylelint-disable-next-line property-disallowed-list
+        border-radius: $formCheckRadioBorderRadius;
+    }
+
+    &:active {
+        filter: $formCheckInputActiveFilter;
+    }
+
+    &:focus {
+        @if $shadowsEnabled {
+            box-shadow: $formCheckInputFocusBoxShadow;
+        } @else if $outlineEnabled {
+            outline: $formCheckFocusOutlineWidth $formCheckFocusOutlineStyle $formCheckFocusOutlineColor;
+            outline-offset: $formCheckFocusOutlineOffset;
+        } @else {
+            outline: 0;
+        }
+
+        border-color: $formCheckInputFocusBorder;
+    }
+
+    &:checked {
+        background-color: $formCheckInputCheckedBackground;
+        border-color: $formCheckInputCheckedBorderColor;
+
+        &[type=checkbox] {
+            background-image: escape-svg($formCheckInputCheckedBackgroundImage);
+        }
+
+        &[type=radio] {
+            background-image: escape-svg($formCheckRadioCheckedBackgroundImage);
+        }
+    }
+
+    &[type="checkbox"]:indeterminate {
+        background-color: $formCheckInputIndeterminateBackground;
+        border-color: $formCheckInputIndeterminateBorderColor;
+
+        background-image: escape-svg($formCheckInputIndeterminateBackgroundImage);
+    }
+
+    &:disabled {
+        pointer-events: none;
+        filter: none;
+        opacity: $formCheckInputDisabledOpacity;
+    }
+
+    // Use disabled attribute in addition of :disabled pseudo-class
+    // See: https://github.com/twbs/bootstrap/issues/28247
+    &[disabled],
+    &:disabled {
+        ~ .form-check-label {
+            opacity: $formCheckInputDisabledOpacity;
+        }
+    }
+}
+
+.form-check-label {
+    color: $formCheckLabelColor;
+    cursor: $formCheckLabelCursor;
+}
+
+.form-check-inline {
+    display: inline-block;
+    margin-right: $formCheckInlineMarginEnd;
+}
+
+textarea {
+    vertical-align: top;
+
+    &.input {
+        min-height: $inputMinHeight;
+    }
+}

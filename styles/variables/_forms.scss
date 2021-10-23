@@ -1,0 +1,513 @@
+////
+/// @group Forms
+////
+
+/// @type Number
+/// @access public
+$labelMarginBottom: 0.5rem !default;
+
+/// @type Number
+/// @access public
+$labelMarginRight: 1rem !default;
+
+/// @type Number
+/// @access public
+$labelLineHeight: 1.3em !default;
+
+/// @type Number
+/// @access public
+$labelFontSize: 1.5rem !default;
+
+/// @type String
+/// @access public
+$labelFontStyle: null !default;
+
+/// @type Number
+/// @access public
+$labelFontWeight: null !default;
+
+/// @type Color
+/// @access public
+$labelColor: null !default;
+
+/// @type List
+/// @access public
+$inputBoxShadow: $boxShadowInset;
+
+/// @type Color
+/// @access public
+$inputBorderRadius: $defaultRadius;
+
+/// @type Color
+/// @access public
+$inputColor: $darkerGray !default;
+
+/// @type Color
+/// @access public
+$inputColorDisabled: $darkGray !default;
+
+/// @type Color
+/// @access public
+$inputColorInvalid: $danger !default;
+
+/// @type Color
+/// @access public
+$inputColorValid: $success !default;
+
+/// @type Color
+/// @access public
+$inputBorderColor: shade-color($inputColor, 5%) !default;
+
+/// @type Color
+/// @access public
+$inputBorderColorInvalid: shade-color($inputColorInvalid, 5%) !default;
+
+/// @type Color
+/// @access public
+$inputBorderColorValid: shade-color($inputColorValid, 5%) !default;
+
+/// @type List
+/// @access public
+$inputFont: $baseFont !default;
+
+/// @type Number
+/// @access public
+$inputFontSize: $baseFontSize !default;
+
+/// @type Number
+/// @access public
+$inputFontWeight: $baseFontWeight !default;
+
+/// @type Color
+/// @access public
+$inputBackground: $white !default;
+
+/// @type Color
+/// @access public
+$inputBackgroundValid: $white !default;
+
+/// @type Color
+/// @access public
+$inputBackgroundInvalid: $white !default;
+
+/// @type Color
+/// @access public
+$inputDisabledBackground: $lightestGray !default;
+
+/// @type Color
+/// @access public
+$inputBorderColorHover: shade-color($inputBorderColor, 10%) !default;
+
+/// @type Color
+/// @access public
+$inputBorderColorInvalidHover: shade-color($inputBorderColorInvalid, 10%) !default;
+
+/// @type Color
+/// @access public
+$inputBorderColorValidHover: shade-color($inputBorderColorValid, 10%) !default;
+
+/// @type Color
+/// @access public
+$inputFocusBorderColor: $primary !default;
+
+/// @type Number
+/// @access public
+$inputPaddingHorizontal: 1.6rem !default;
+
+/// @type Number
+/// @access public
+$inputPaddingVertical: 1rem !default;
+
+/// @type Number
+/// @access public
+$inputMarginBottom: 2rem !default;
+
+/// @type Color
+/// @access public
+$inputPlaceholderColor: lighten($inputColor, 40%) !default;
+
+/// @type Number|Boolean
+/// @access public
+$inputMinWidth: 20rem !default;
+
+/// @type Number|Boolean
+/// @access public
+$inputMinHeight: 3rem !default;
+
+/// @type Color
+/// @access public
+$inputBorderColorInvalidHover: shade-color($inputBorderColorInvalid, 10%) !default;
+
+/// @type Color
+/// @access public
+$inputBorderColorInvalidFocus: shade-color($inputBorderColorInvalid, 20%) !default;
+
+/// @type Number|Boolean
+/// @access public
+$inputBorderWidth: 1px !default;
+
+/// @type Number|Bool
+/// @access public
+$inputBorderWidthInvalid: $inputBorderWidth !default;
+
+/// @type Number|Bool
+/// @access public
+$inputBorderWidthValid: $inputBorderWidth !default;
+
+/// @type Number
+/// @access public
+$inputBorderWidthDisabled: $inputBorderWidth !default;
+
+/// @type Color
+/// @access public
+$inputDisabledBorderColor: tint-color($lightestGray, 10%) !default;
+
+/// @type String
+/// @access public
+$inputCursorDisabled: not-allowed !default;
+
+/// @type String
+/// @access public
+$inputDisabledModifier: -is-disabled !default;
+
+/// @type String
+/// @access public
+$inputDisabledCursor: not-allowed !default;
+
+/// @type Number
+/// @access public
+$inputLineHeight: $baseLineHeight !default;
+
+/// @type Number
+/// @access public
+$inputFocusWidth: 0.25rem !default;
+
+/// @type Number
+/// @access public
+$inputFocusColorOpacity: 0.25 !default;
+
+/// @type Color
+/// @access public
+$inputFocusColor: rgba($primary, $inputFocusColorOpacity) !default;
+
+/// @type Color
+/// @access public
+$inputFocusColorInvalid: rgba($danger, $inputFocusColorOpacity) !default;
+
+/// @type Color
+/// @access public
+$inputFocusColorValid: rgba($success, $inputFocusColorOpacity) !default;
+
+/// @type Number
+/// @access public
+$inputFocusBlur: 0 !default;
+
+/// @type List
+/// @access public
+$inputFocusBoxShadow: 0 0 $inputFocusBlur $inputFocusWidth $inputFocusColor !default !default;
+
+/// @type List
+/// @access public
+$inputFocusBoxShadowInvalid: 0 0 $inputFocusBlur $inputFocusWidth $inputFocusColorInvalid !default;
+
+/// @type List
+/// @access public
+$inputFocusBoxShadowValid: 0 0 $inputFocusBlur $inputFocusWidth $inputFocusColorValid !default;
+
+/// @type Number
+/// @access public
+$inputFocusOutlineWidth: 1px !default;
+
+/// @type String
+/// @access public
+$inputFocusOutlineStyle: solid !default;
+
+/// @type Color
+/// @access public
+$inputFocusOutlineColor: rgba($primary, 0.5) !default;
+
+/// @type Color
+/// @access public
+$inputFocusOutlineInvalidColor: rgba($inputColorInvalid, 0.5) !default;
+
+/// @type Color
+/// @access public
+$inputFocusOutlineValidColor: rgba($inputColorValid, 0.5) !default;
+
+/// @type Number
+/// @access public
+$inputFocusOutlineOffset: 1px !default;
+
+/// @type Color
+/// @access public
+$formFileButtonColor: $darkestGray !default;
+
+/// @type Color
+/// @access public
+$formFileButtonBackgroundColor: $lightGray !default;
+
+/// @type Color
+/// @access public
+$formFileButtonBackgroundHoverColor: shade-color($lightGray, 5%) !default;
+
+/// @type Number
+/// @access public
+$rangeTrackWidth: 100% !default;
+
+/// @type Number
+/// @access public
+$rangeTrackHeight: 0.5rem !default;
+
+/// @type String
+/// @access public
+$rangeTrackCursor: pointer !default;
+
+/// @type Color
+/// @access public
+$rangeTrackBackground: $lighterGray !default;
+
+/// @type Number
+/// @access public
+$rangeTrackBorderRadius: 1rem !default;
+
+/// @type List
+/// @access public
+$rangeTrackBoxShadow: $boxShadowInset !default;
+
+/// @type Number
+/// @access public
+$rangeThumbWidth: 1.5rem !default;
+
+/// @type Number
+/// @access public
+$rangeThumbHeight: $rangeThumbWidth !default;
+
+/// @type Color
+/// @access public
+$rangeThumbBackground: $primary !default;
+
+/// @type Number
+/// @access public
+$rangeThumbBorder: 0 !default;
+
+/// @type Number
+/// @access public
+$rangeThumbBorderRadius: 1rem !default;
+
+/// @type List
+/// @access public
+$rangeThumbBoxShadow: 0 0.1rem 0.25rem rgba($black, 0.1) !default;
+
+/// @type Color
+/// @access public
+$rangeThumbActiveBackground: tint-color($primary, 70%) !default;
+
+/// @type Color
+/// @access public
+$rangeThumbDisabledBackground: $darkGray !default;
+
+/// @type List
+/// @access public
+$rangeThumbBoxShadowFocus: 0 0 0 1px $bodyBackground, $inputFocusBoxShadow !default;
+
+/// @type Number
+/// @access public
+$selectPaddingVertical: $inputPaddingVertical !default;
+
+/// @type Number
+/// @access public
+$selectPaddingHorizontal: $inputPaddingHorizontal !default;
+
+/// @type List
+/// @access public
+$selectFont: $inputFont !default;
+
+/// @type Number
+/// @access public
+$selectFontSize: $inputFontSize !default;
+
+/// @type Number
+/// @access public
+$selectIndicatorPadding: $selectPaddingHorizontal * 3 !default; // Extra padding for background-image
+
+/// @type Number
+/// @access public
+$selectFontWeight: $inputFontWeight !default;
+
+/// @type Number
+/// @access public
+$selectLineHeight: $inputLineHeight !default;
+
+/// @type Color
+/// @access public
+$selectColor: $inputColor !default;
+
+/// @type Color
+/// @access public
+$selectBackground: $inputBackground !default;
+
+/// @type Color
+/// @access public
+$selectDisabledColor: null !default;
+
+/// @type Color
+/// @access public
+$selectDisabledBackground: $inputDisabledBackground !default;
+
+/// @type Color
+/// @access public
+$selectDisabledBorderColor: $inputDisabledBorderColor !default;
+
+/// @type List
+/// @access public
+$selectBackgroundPosition: right $selectPaddingHorizontal center !default;
+
+/// @type List
+/// @access public
+$selectBackgroundSize: 16px 12px !default; // In pixels because image dimensions
+
+/// @type Number
+/// @access public
+$selectBorderWidth: $inputBorderWidth !default;
+
+/// @type Color
+/// @access public
+$selectBorderColor: $inputBorderColor !default;
+
+/// @type Color
+/// @access public
+$selectIndicatorColor: $darkestGray !default;
+
+/// @type Number
+/// @access public
+$selectBorderRadius: $inputBorderRadius !default;
+
+/// @type List
+/// @access public
+$selectBoxShadow: $inputBoxShadow;
+
+/// @type List
+/// @access public
+$selectFocusBoxShadow: $inputFocusBoxShadow;
+
+/// @type Color
+/// @access public
+$selectFocusBorderColor: $inputFocusBorderColor;
+
+/// @type URL
+/// @access public
+$selectIndicator: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path fill='none' stroke='#{$selectIndicatorColor}' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/></svg>") !default;
+
+/// @type Number
+/// @access public
+$formCheckInputWidth: 1.2rem !default;
+
+/// @type Number
+/// @access public
+$formCheckMinHeight: #{strip-unit($baseFontSize) * strip-unit($baseFontSize)}rem !default;
+
+/// @type Number
+/// @access public
+$formCheckPaddingLeft: $formCheckInputWidth + 0.5rem !default;
+
+/// @type Number
+/// @access public
+$formCheckMarginBottom: 0.125rem !default;
+
+/// @type Color
+/// @access public
+$formCheckLabelColor: null !default;
+
+/// @type String
+/// @access public
+$formCheckLabelCursor: null !default;
+
+/// @type Property
+/// @access public
+$formCheckInputActiveFilter: brightness(90%) !default;
+
+/// @type Color
+/// @access public
+$formCheckInputBackground: $inputBackground !default;
+
+/// @type List
+/// @access public
+$formCheckInputBorder: 1px solid rgba($black, 0.25) !default;
+
+/// @type Number
+/// @access public
+$formCheckInputBorderRadius: 0.25em !default;
+
+/// @type Number
+/// @access public
+$formCheckRadioBorderRadius: 50% !default;
+
+/// @type Color
+/// @access public
+$formCheckInputFocusBorder: $inputFocusBorderColor !default;
+
+/// @type List
+/// @access public
+$formCheckInputFocusBoxShadow: $inputFocusBoxShadow !default;
+
+/// @type Color
+/// @access public
+$formCheckInputCheckedColor: $white !default;
+
+/// @type Color
+/// @access public
+$formCheckInputCheckedBackground: $primary !default;
+
+/// @type Color
+/// @access public
+$formCheckInputCheckedBorderColor: $formCheckInputCheckedBackground !default;
+
+/// @type URL
+/// @access public
+$formCheckInputCheckedBackgroundImage: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='none' stroke='#{$formCheckInputCheckedColor}' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/></svg>") !default;
+
+/// @type URL
+/// @access public
+$formCheckRadioCheckedBackgroundImage: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='2' fill='#{$formCheckInputCheckedColor}'/></svg>") !default;
+
+/// @type Color
+/// @access public
+$formCheckInputIndeterminateColor: $white !default;
+
+/// @type Color
+/// @access public
+$formCheckInputIndeterminateBackground: $primary !default;
+
+/// @type Color
+/// @access public
+$formCheckInputIndeterminateBorderColor: $formCheckInputIndeterminateBackground !default;
+
+/// @type URL
+/// @access public
+$formCheckInputIndeterminateBackgroundImage: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='none' stroke='#{$formCheckInputIndeterminateColor}' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10h8'/></svg>") !default;
+
+/// @type Number
+/// @access public
+$formCheckInputDisabledOpacity: 0.5 !default;
+
+/// @type Number
+/// @access public
+$formCheckLabelDisabledOpacity: $formCheckInputDisabledOpacity !default;
+
+/// @type Number
+/// @access public
+$formCheckInlineMarginEnd: 1rem !default;
+
+/// @type Number
+/// @access public
+$formCheckFocusOutlineWidth: $inputFocusOutlineWidth !default;
+
+/// @type String
+/// @access public
+$formCheckFocusOutlineStyle: $inputFocusOutlineStyle !default;
+
+/// @type Color
+/// @access public
+$formCheckFocusOutlineColor: $inputFocusOutlineColor !default;
+
+$formCheckFocusOutlineOffset: $inputFocusOutlineOffset !default;

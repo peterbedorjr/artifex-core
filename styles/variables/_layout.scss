@@ -1,0 +1,25 @@
+////
+/// @group Layout
+////
+
+/// Bumper padding on containers, false to disable
+/// @type Number|Bool
+/// @access public
+$bumperPadding: 6% !default;
+
+/// Default spacing for lists, form elements, and other blocks
+/// @type Number
+/// @access public
+$blockMarginBottom: 4rem !default;
+
+/// Max width for container
+/// @group layout
+/// @type Number|Bool
+/// @access public
+$maxWidth: 1280px !default;
+
+/// Min width for container
+/// @group layout
+/// @type Number|Bool
+/// @access public
+$minWidth: false !default;

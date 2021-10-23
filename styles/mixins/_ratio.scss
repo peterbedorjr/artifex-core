@@ -1,0 +1,27 @@
+@use 'sass:math';
+
+/// Set image aspect ratio
+///
+/// @param $keyword - embed
+/// @param $ratio - proportion between two unitless values
+@mixin ratio($keyword: false, $ratio: 16 / 9) {
+    @if ($keyword != false and $keyword == embed) {
+        overflow: hidden;
+        position: relative;
+        &::before {
+            content: '';
+            display: block;
+            height: 0;
+            padding-top: ((math.div(1 / $ratio)) * 100%);
+        }
+    } @else {
+        // Shift arguments
+        @if ($keyword != false) {
+            $ratio: $keyword;
+        }
+
+        display: block;
+        height: 0;
+        padding-top: ((math.div(1 / $ratio)) * 100%);
+    }
+}

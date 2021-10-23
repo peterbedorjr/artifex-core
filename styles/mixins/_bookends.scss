@@ -1,0 +1,8 @@
+/// @param $value
+/// @param $margin - left and right margin
+/// @param $font - font family name
+/// @param $color - hex value or color
+@mixin bookends($value: '-', $margin: .5em, $font: false, $color: false) {
+    @include prefix($value, $margin, $font, $color);
+    @include suffix($value, $margin, $font, $color);
+}

@@ -1,0 +1,330 @@
+////
+/// @group Typography
+////
+
+/// @type Color
+/// @access public
+$linkColor: $primary !default;
+
+/// @type Color
+/// @access public
+$linkColorHover: shade-color($linkColor, 15%) !default;
+
+/// @type Color
+/// @access public
+$linkColorActive: shade-color($linkColor, 25%) !default;
+
+/// @type String [none, underline]
+/// @access public
+$linkDecoration: none !default;
+
+/// @type String [none, underline, false]
+/// @access public
+$linkDecorationHover: underline !default; // none, underline, false
+
+/// @type String
+/// @access public
+$boldFontWeight: bold !default;
+
+/// @type String
+/// @access public
+$normalFontWeight: normal !default;
+
+/// @group Typography
+/// @type Number
+/// @access public
+$paragraphLineHeight: 1.7em !default;
+
+/// @type Color
+/// @access public
+$paragraphColor: $baseColor !default;
+
+/// @type String
+/// @access public
+$paragraphFontWeight: $baseFontWeight !default;
+
+/// @type Number
+/// @access public
+$paragraphMarginBottom: 2rem !default;
+
+/// @type String
+/// @access public
+$abbrUnderline: dotted !default;
+
+/// @type Color
+/// @access public
+$markColor: $baseColor !default;
+
+/// @type Color
+/// @access public
+$markBackground: yellow !default;
+
+/// @type Color|Bool
+/// @access public
+$figureBorderColor: false !default;
+
+/// @type Bool
+/// @access public
+$figureRounded: false !default;
+
+/// @type Number
+/// @access public
+$figurePadding: $blockMarginBottom !default;
+
+/// @type Color
+/// @access public
+$figCaptionColor: $darkGray !default;
+
+/// @type String
+/// @access public
+$figCaptionFontStyle: italic !default;
+
+/// @type Number
+/// @access public
+$figCaptionLineHeight: $paragraphLineHeight !default;
+
+/// @type Color
+/// @access public
+$selectionColor: $white !default;
+
+/// @type Color
+/// @access public
+$selectionBackground: $linkColor !default;
+
+/// @type Number
+/// @access public
+$headingColor: inherit !default;
+
+/// @type List
+/// @access public
+$headingFont: Tahoma, Geneva, sans-serif !default;
+
+/// @type String
+/// @access public
+$headingFontWeight: $boldFontWeight !default;
+
+/// @type Number
+/// @access public
+$headingLineHeight: 1.4em !default;
+
+/// @type Number
+/// @access public
+$headingMarginBottom: 2rem !default;
+
+/// @type Number
+/// @access public
+$h1: 3.6rem !default;
+
+/// @type Number
+/// @access public
+$h2: 3.2rem !default;
+
+/// @type Number
+/// @access public
+$h3: 2.8rem !default;
+
+/// @type Number
+/// @access public
+$h4: 2.4rem !default;
+
+/// @type Number
+/// @access publict;
+$h5: 2rem !default;
+
+/// @type Number
+/// @access public
+$h6: 1.6rem !default;
+
+/// @type Map
+/// @access public
+$headings: (
+    h1: $h1,
+    h2: $h2,
+    h3: $h3,
+    h4: $h4,
+    h5: $h5,
+    h6: $h6
+);
+
+/// @access public
+$smallFontSize: .8em !default;
+
+/// @type Color
+/// @access public
+$citeColor: $gray !default;
+
+/// @type List
+/// @access public
+$citeFont: $baseFont !default;
+
+/// @type Number
+/// @access public
+$citeFontSize: 1.8rem !default;
+
+/// @type String
+/// @access public
+$citeFontStyle: normal !default;
+
+/// @type String
+/// @access public
+$citeFontWeight: normal !default;
+
+/// @type Number
+/// @access public
+$citeLineHeight: 1.2em !default;
+
+/// @type Number
+/// @access public
+$citeMarginTop: 1.4rem !default;
+
+/// @type String
+/// @access public
+$citeIndicator: '\2014\00a0' !default;
+
+/// @type Color
+/// @access public
+$quoteColor: $darkestGray !default;
+
+/// @type List
+/// @access public
+$quoteFont: Georgia, Times, serif !default;
+
+/// @type Number
+/// @access public
+$quoteFontSize: 2rem !default;
+
+/// @type String
+/// @access public
+$quoteFontStyle: italic !default;
+
+/// @type String
+/// @access public
+$quoteFontWeight: normal !default;
+
+/// @type Number
+/// @access public
+$quoteLineHeight: 1.4em !default;
+
+/// @type Number
+/// @access public
+$quotePaddingHorizontal: 2em !default;
+
+/// @type Number
+/// @access public
+$quotePaddingVertical: 1em !default;
+
+/// @type Color
+/// @access public
+$ruleColor: $lightGray !default;
+
+/// @type Number
+/// @access public
+$ruleHeight: 1px !default;
+
+/// @type String
+/// @access public
+$ruleStyle: solid !default;
+
+/// @type Number
+/// @access public
+$ruleMargin: $blockMarginBottom !default;
+
+/// @type Color
+/// @access public
+$addressColor: $darkestGray !default;
+
+/// @type List
+/// @access public
+$addressFont: $baseFont !default;
+
+/// @type Number
+/// @access public
+$addressFontSize: $baseFontSize !default;
+
+/// @type String
+/// @access public
+$addressFontWeight: normal !default;
+
+/// @type String
+/// @access public
+$addressFontStyle: normal !default;
+
+/// @type Number
+/// @access public
+$addressLineHeight: $paragraphLineHeight !default;
+
+/// @type Color
+/// @access public
+$listColor: $paragraphColor !default;
+
+/// @type Number
+/// @access public
+$listLineHeight: $paragraphLineHeight !default;
+
+/// @type Number
+/// @access public
+$listMarginBottom: $paragraphMarginBottom !default;
+
+/// @type Number|Boolean
+/// @access public
+$listMarginLeft: false !default;
+
+/// @type String
+/// @access public
+$listBulletStyle: disc !default;
+
+/// @type String [inside, outside]
+/// @access public
+$listBulletPosition: inside !default;
+
+/// @type Number
+/// @access public
+$nestedListMarginLeft: 2rem !default;
+
+/// @type Number
+/// @access public
+$liMarginBottom: .2rem !default; // false to disable
+
+/// @type Number
+/// @access public
+$dlMarginBottom: $blockMarginBottom !default;
+
+/// @type Color
+/// @access public
+$dtColor: $darkerGray !default;
+
+/// @type List
+/// @access public
+$dtFont: $baseFont !default;
+
+/// @type Number
+/// @access public
+$dtFontSize: $baseFontSize !default;
+
+/// @type Number
+/// @access public
+$dtMarginBottom: .2rem !default;
+
+/// @type Number
+/// @access public
+$ddColor: $gray !default;
+
+/// @type List
+/// @access public
+$ddFont: $baseFont !default;
+
+/// @type Number
+/// @access public
+$ddFontSize: $baseFontSize !default;
+
+/// @type Number
+/// @access public
+$ddMarginBottom: .5rem !default;
+
+/// @type String
+/// @access public
+$imageLeftClass: img-left !default;
+
+/// @type String
+/// @access public
+$imageRightClass: img-right !default;

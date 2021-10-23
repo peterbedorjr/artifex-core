@@ -1,0 +1,23 @@
+/// Styles form placeholder text
+/// @param {Color} $color [$inputPlaceholderColor]
+@mixin placeholder($color: $inputPlaceholderColor) {
+    @include optional-at-root('::-webkit-input-placeholder') {
+        color: $color;
+        @content;
+    }
+
+    @include optional-at-root(':-moz-placeholder') {
+        color: $color;
+        @content;
+    }
+
+    @include optional-at-root('::-moz-placeholder') {
+        color: $color;
+        @content;
+    }
+
+    @include optional-at-root(':-ms-input-placeholder') {
+        color: $color;
+        @content;
+    }
+}

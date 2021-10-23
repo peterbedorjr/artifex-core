@@ -1,0 +1,71 @@
+////
+/// @group Colors
+////
+
+/// @type Color
+/// @access public
+$primary: #0d6efd !default;
+
+/// @type Color
+/// @access public
+$secondary: #121212 !default;
+
+/// @type Color
+/// @access public
+$info: #0dcaf0 !default;
+
+/// @type Color
+/// @access public
+$success: #198754 !default;
+
+/// @type Color
+/// @access public
+$warning: #ffc107 !default;
+
+/// @type Color
+/// @access public
+$danger: #dc3545 !default;
+
+/// @type Color
+/// @access public
+$white: #fff !default;
+
+/// @type Color
+/// @access public
+$lightestGray: darken(#fff, 4%) !default;
+
+/// @type Color
+/// @access public
+$lighterGray: darken(#fff, 10%) !default;
+
+/// @type Color
+/// @access public
+$lightGray: darken(#fff, 25%) !default;
+
+/// @type Color
+/// @access public
+$gray: darken(#fff, 35%) !default;
+
+/// @type Color
+/// @access public
+$darkGray: darken(#fff, 55%) !default;
+
+/// @type Color
+/// @access public
+$darkerGray: darken(#fff, 65%) !default;
+
+/// @type Color
+/// @access public
+$darkestGray: darken(#fff, 75%) !default;
+
+/// @type Color
+/// @access public
+$black: #000 !default;
+
+/// @type Color
+/// @access public
+$colorContrastLight: $white;
+
+/// @type Color
+/// @access public
+$colorContrastDark: $black;

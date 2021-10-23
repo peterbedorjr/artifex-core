@@ -1,0 +1,34 @@
+/// @param $keyword - top, right, bottom, left
+/// @param $radius - value defines how rounded el's corners are
+///
+@mixin borderRadius($keyword: '', $value: $defaultRadius) {
+    $corners: false;
+
+    @if ($keyword != false) {
+        background-clip: border-box;
+
+        @if ($keyword == left or $keyword == right) {
+            $corners: border-top-#{$keyword}-radius,
+                border-bottom-#{$keyword}-radius;
+        } @else if ($keyword == top or $keyword == bottom) {
+            $corners: border-#{$keyword}-left-radius,
+                border-#{$keyword}-right-radius;
+        }
+
+        @if ($corners != false) {
+            @each $corner in $corners {
+                #{$corner}: $value;
+            }
+        } @else {
+            @if (type-of($keyword) == number) {
+                $value: $keyword;
+            }
+
+            @if (unit($value) == '') {
+                $value: $value + rem;
+            }
+
+            border-radius: $value;
+        }
+    }
+}

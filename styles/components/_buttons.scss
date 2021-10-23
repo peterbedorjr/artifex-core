@@ -1,0 +1,117 @@
+$variants: (
+    info: $info,
+    warning: $warning,
+    success: $success,
+    danger: $danger,
+);
+
+.button {
+    @include font($buttonFont, $buttonFontSize, $buttonFontWeight);
+
+    border: $buttonBorderWidth solid transparent;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    cursor: $buttonCursor;
+    user-select: none;
+    background-color: transparent;
+    margin: 0;
+    padding: $buttonPaddingVertical $buttonPaddingHorizontal;
+    border-radius: if($buttonRounded, $buttonBorderRadius, null);
+
+    &.-is-disabled,
+    &:disabled {
+        cursor: $disabledButtonCursor;
+        background-color: $disabledButtonBackgroundColor;
+        border-color: $disabledButtonBackgroundColor;
+    }
+
+    &:focus {
+        outline: 0;
+    }
+
+    &::-moz-focus-inner {
+        border: 0;
+        padding: 0;
+    }
+}
+
+.button {
+    background-color: $buttonBackgroundColor;
+    border-color: if($buttonBorderColor, $buttonBorderColor, null);
+    color: $buttonColor;
+
+    &:not(:disabled) {
+        &:hover {
+            background-color: $buttonBackgroundColorHover;
+        }
+
+        &:focus {
+            @if $shadowsEnabled {
+                @include boxShadow($baseButtonFocusBoxShadow, 0 0 0 $baseButtonFocusWidth rgba(mix($buttonColor, $buttonBackgroundColor, 5%), .5));
+            } @else if $outlineEnabled {
+                outline: $buttonFocusOutlineWidth $buttonFocusOutlineStyle $buttonFocusOutlineColor;
+                outline-offset: $buttonFocusOutlineOffset;
+            }
+
+            background-color: $buttonBackgroundColorFocus;
+
+            &:hover {
+                background-color: $buttonBackgroundColorActiveHover;
+            }
+        }
+
+        &:active {
+            @if $shadowsEnabled {
+                @include boxShadow($buttonActiveBoxShadow, $baseButtonFocusBoxShadow, 0 0 0 $baseButtonFocusWidth rgba(mix($buttonColor, $buttonBackgroundColor, 5%), .5));
+            }
+
+            background-color: $buttonBackgroundColorActive;
+
+            &:hover {
+                background-color: $buttonBackgroundColorActiveHover;
+            }
+        }
+    }
+
+    @if $buttonVariantsEnabled {
+        @each $variant, $background in $variants {
+            $color: color-contrast($background);
+
+            &.-#{$variant} {
+                color: $color;
+                background-color: $background;
+                border-color: $background;
+
+                &:not(:disabled) {
+                    &:hover {
+                        background-color: if($color == $colorContrastLight, shade-color($background, $buttonHoverBackgroundShadeAmount), tint-color($background, $buttonHoverBackgroundTintAmount));
+                    }
+
+                    &:focus {
+                        @if $shadowsEnabled {
+                            @include boxShadow($baseButtonFocusBoxShadow, 0 0 0 $baseButtonFocusWidth rgba(mix($color, $background, 5%), .5));
+                        } @else if $outlineEnabled {
+                            outline: $buttonFocusOutlineWidth $buttonFocusOutlineStyle rgba(mix($color, $background, 5%), .5);
+                            outline-offset: $buttonFocusOutlineOffset;
+                        }
+
+                        background-color: if($color == $colorContrastLight, shade-color($background, $buttonFocusBackgroundShadeAmount), tint-color($background, $buttonFocusBackgroundTintAmount));
+
+                        &:hover {
+                            background-color: if($color == $colorContrastLight, shade-color($background, $buttonActiveHoverBackgroundShadeAmount), tint-color($background, $buttonActiveHoverBackgroundTintAmount));
+                        }
+                    }
+
+                    &:active {
+                        background-color: if($color == $colorContrastLight, shade-color($background, $buttonActiveBackgroundShadeAmount), tint-color($background, $buttonActiveBackgroundTintAmount));
+
+                        &:hover {
+                            background-color: if($color == $colorContrastLight, shade-color($background, $buttonActiveHoverBackgroundShadeAmount), tint-color($background, $buttonActiveHoverBackgroundTintAmount));
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,8 @@
+/// Set width and/or height
+///
+/// @param $width - element width
+/// @param $height - element height
+@mixin size($width, $height: false) {
+    width: $width;
+    height: if($height, $height, $width);
+}

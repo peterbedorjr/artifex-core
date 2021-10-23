@@ -1,0 +1,56 @@
+@use 'sass:math';
+
+@import 'border-radius';
+
+/// Creates a circle
+///
+/// @param $diameter - width and height of element
+/// @param $crop - overflow hidden true/false
+/// @param $display - element display property
+///
+@mixin circle($diameter, $crop: false, $display: block) {
+    @include borderRadius(math.div($diameter / 2));
+
+    @if (unit($diameter) == '') {
+        $diameter: $diameter + rem;
+    }
+
+    height: $diameter;
+    width: $diameter;
+    overflow: if($crop, hidden, null);
+    display: if($display, $display, null);
+}
+
+/// Creates a triangle
+///
+/// @param $keyword - direction of triangle
+/// @param $color - hex value or color var
+/// @param size - triangle size
+/// @param width - triangle width
+@mixin triangle($keyword, $color: $darkGray, $size: 5px, $width: $size) {
+    content: '';
+    height: 0;
+    width: 0;
+
+    @if ($keyword == up or $keyword == down) {
+        border-left: $width solid transparent;
+        border-right: $width solid transparent;
+
+        @if ($keyword == up) {
+            border-bottom: $size solid $color;
+        } @else {
+            border-top: $size solid $color;
+        }
+    }
+
+    @if ($keyword == left or $keyword == right) {
+        border-bottom: $width solid transparent;
+        border-top: $width solid transparent;
+
+        @if ($keyword == left) {
+            border-right: $size solid $color;
+        } @else {
+            border-left: $size solid $color;
+        }
+    }
+}

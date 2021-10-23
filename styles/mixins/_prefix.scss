@@ -1,0 +1,12 @@
+/// @param $value
+/// @param $margin - right margin
+/// @param $font - font family name
+/// @param $color - hex value or color var
+@mixin prefix($value: '-', $margin: .5em, $font: false, $color: false) {
+    &::before {
+        content: $value;
+        margin-right: $margin;
+        font-family: if($font, $font, null);
+        color: if($color, $color, null);
+    }
+}
